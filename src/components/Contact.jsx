@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 import { addFormData } from "../app/contactSlice";
 
 const Contact = () => {
-    const dispatch=useDispatch()
-    console
+  const dispatch = useDispatch();
+
   const initialValues = {
     name: "",
     email: "",
@@ -24,7 +24,7 @@ const Contact = () => {
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
     console.log("Form submitted:", values);
-    dispatch(addFormData(values))
+    dispatch(addFormData(values));
     setSubmitting(false);
     resetForm();
   };
@@ -34,7 +34,11 @@ const Contact = () => {
       <h1 className="text-xl font-bold">Contact Me</h1>
       <p className="text-center">Here's how you can get in touch with me...</p>
 
-      <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
         {({ isSubmitting }) => (
           <Form className="flex flex-col items-center p-8">
             <Field
@@ -44,7 +48,11 @@ const Contact = () => {
               id="name"
               placeholder="Enter your name"
             />
-            <ErrorMessage name="name" component="div" className="error text-red-600" />
+            <ErrorMessage
+              name="name"
+              component="div"
+              className="error text-red-600"
+            />
 
             <Field
               className="w-3/6 p-2 border border-slate-400 mb-4 rounded-lg"
@@ -53,19 +61,31 @@ const Contact = () => {
               id="email"
               placeholder="Enter your Email address"
             />
-            <ErrorMessage   name="email" component="div" className="error text-red-600" />
+            <ErrorMessage
+              name="email"
+              component="div"
+              className="error text-red-600"
+            />
 
             <Field
               className="w-3/6 p-2 h-48 border border-slate-400 mb-4 rounded-lg"
               name="message"
               id="message"
-              as="textarea" 
+              as="textarea"
               placeholder="Enter your message"
             />
-            <ErrorMessage name="message" component="div" className="error text-red-600" />
+            <ErrorMessage
+              name="message"
+              component="div"
+              className="error text-red-600"
+            />
 
-            <button className="bg-slate-600 w-3/6 rounded-lg p-2 font-semibold text-white" type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+            <button
+              className="bg-slate-600 w-3/6 rounded-lg p-2 font-semibold text-white"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </Form>
         )}

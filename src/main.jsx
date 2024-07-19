@@ -7,6 +7,8 @@ import Contact from "./components/Contact.jsx";
 import { Provider } from "react-redux";
 import appStore from "./app/appStore.js";
 
+
+
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -20,8 +22,8 @@ const appRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={appStore}>
-      <RouterProvider router={appRouter} />
-    </Provider>
+      <Provider store={appStore}>
+        <RouterProvider router={appRouter} />
+      </Provider>
   </React.StrictMode>
 );
